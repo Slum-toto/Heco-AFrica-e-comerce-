@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HecoAfrica Slum Tour</title>
+  <link rel="stylesheet" href="tour.css" />
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <header class="hero" style="background-image:url('hero-bg.jpg'); background-size:cover; background-position:center;">
+    <div class="hero-content">
+      <h1>Welcome to HecoAfrica Slum Tour</h1>
+      <p>Explore the heart of Kibera with local guides</p>
+      <a href="#booking" class="btn-primary">Book Your Tour</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- TOUR PACKAGES -->
+    <section class="packages">
+      <div class="card">
+        <h3>1 Hour Quick Tour</h3>
+        <p>Short but rich experience to explore key spots</p>
+        <ul>
+          <li>🌍 Guided walk</li>
+          <li>Visit artisan/market</li>
+          <li>Community stories</li>
+        </ul>
+        <p class="price">KES 1,000</p>
+      </div>
+
+      <div class="card">
+        <h3>Full-Day Immersion</h3>
+        <p>Experience Kibera culture deeply for a full day</p>
+        <ul>
+          <li>Community walk</li>
+          <li>Schools & art centers visit</li>
+          <li>Lunch at local restaurant</li>
+          <li>Meet entrepreneurs</li>
+        </ul>
+        <p class="price">KES 4,000</p>
+      </div>
+
+      <div class="card">
+        <h3>3 Day Deep Experience</h3>
+        <p>Understand Kibera life in depth with a 3-day tour</p>
+        <ul>
+          <li>Culture & community tour</li>
+          <li>Project visits</li>
+          <li>Volunteer activity</li>
+          <li>Snacks & bottled water</li>
+        </ul>
+        <p class="price">KES 9,000</p>
+      </div>
+    </section>
+
+    <!-- BOOKING FORM -->
+    <section id="booking" class="booking-form">
+      <h2>Book Your Tour</h2>
+      <form id="booking-form">
+        <div class="field">
+          <input type="text" name="name" placeholder="Full Name" required />
+        </div>
+        <div class="field">
+          <input type="email" name="email" placeholder="Email Address" required />
+        </div>
+        <div class="field">
+          <select name="country" required>
+            <option value="" disabled selected>Your Country</option>
+            <option value="Kenya">Kenya</option>
+            <option value="Uganda">Uganda</option>
+            <option value="Tanzania">Tanzania</option>
+            <option value="Rwanda">Rwanda</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+          </select>
+        </div>
+        <div class="field">
+          <select name="package" required>
+            <option value="1 Hour">1 Hour Quick Tour</option>
+            <option value="1 Day">Full-Day Immersion</option>
+            <option value="3 Day">3 Day Deep Experience</option>
+          </select>
+        </div>
+        <div class="field">
+          <select name="payment" required>
+            <option value="" disabled selected>Payment Method</option>
+            <option value="M-Pesa">M-Pesa</option>
+            <option value="Airtel Money">Airtel Money</option>
+            <option value="Card Payment">Card Payment</option>
+            <option value="PayPal">PayPal</option>
+          </select>
+        </div>
+        <div class="field">
+          <input type="date" name="date" required />
+        </div>
+        <button type="submit" class="btn-primary">Submit Booking</button>
+      </form>
+    </section>
+
+    <!-- TESTIMONIALS PLACEHOLDER -->
+    <section class="testimonials">
+      <h2>What People Say</h2>
+      <div class="card">"Amazing tour, learned so much!" – Jane</div>
+      <div class="card">"Kibera’s spirit is unforgettable." – Paul</div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 HecoAfrica Slum Tour</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
