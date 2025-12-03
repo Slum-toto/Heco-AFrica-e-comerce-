@@ -1,22 +1,25 @@
 // Main script for HECO-Africa Shop
 const products = [
   { id:1, name:"kaftan shirt", category:"kaftan shirt", price:2500, image:"images/Dad 1.jpg", rating:4, isNew:true },
+  { id:10, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 3.jpg", rating:5, isNew:true },
   { id:2, name:"Kaftan shirt", category:"Kaftan shirt", price:2500, image:"images/dad 2.jpg", rating:5, isNew:true },
   { id:3, name:"west african dress", category:"Ankara", price:7500, image:"images/martin 3.jpg", rating:4 },
   { id:4, name:"kids west african shirt", category:"Ankara", price:1500, image:"images/martin 2.jpg", rating:3 },
   { id:5, name:"west african kitenge", category:"Casual", price:4500, image:"images/mama 2.jpg", rating:4 },
   { id:6, name:"Dress", category:"dress", price:7500, image:"images/mama 1.jpg", rating:3 },
-  { id:7, name:"Blue Agbada Jacket", category:"Agbada", price:2500, image:"images/dad 50.jpg", rating:5 },
+  { id:7, name:"Kaftan", category:"Kaftan", price:2500, image:"images/dad 50.jpg", rating:5 },
+  { id:10, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 7.jpg", rating:5 },
   { id:8, name:"baubaus", category:"Baubaus", price:4500, image:"images/dera 1.jpg", rating:4 },
   { id:9, name:"Blouse", category:"Blouse", price:7500, image:"images/Heco1.2.jpg", rating:4 },
   { id:10, name:"Baubau", category:"Baubaus", price:4500, image:"images/dera 2.jpg", rating:5 },
+  { id:10, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 6.jpg", rating:5 },
    { id:10, name:"kaftan shirt", category:"Kaftan shirt", price:2500, image:"images/osore.jpg", rating:5 },
    { id:10, name:"Agbada", category:"Agbada for kids", price:12000, image:"images/agbada.jpg", rating:5 },
    { id:10, name:"Temple Ties", category:"Temple Ties", price:1000, image:"images/ties.jpg", rating:5 },
+   { id:10, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 4.jpg", rating:5 },
    { id:10, name:"kitenge Court", category:"kitenge court", price:7000, image:"images/court luder.jpg", rating:5 },
    { id:10, name:"Hoodey", category:"Hoodey", price:3000, image:"images/red hoodey.jpg", rating:5 },
 ];
-
 let cart = JSON.parse(localStorage.getItem('st_cart') || '[]');
 let filteredProducts = [...products];
 
@@ -158,6 +161,7 @@ function setupMobileMenu() {
 // Expose functions
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
+
 
 
 
