@@ -6,11 +6,11 @@ const products = [
   { id:4, name:"kids west african shirt", category:"Ankara", price:1500, image:"images/martin 2.jpg", rating:3 },
   { id:5, name:"west african kitenge", category:"Casual", price:6500, image:"images/mama 2.jpg", rating:4 },
   { id:6, name:"Printed Tee", category:"Casual", price:8500, image:"images/mama 1.jpg", rating:3 },
-  { id:7, name:"Blue Agbada Jacket", category:"Agbada", price:4500, image:"images/dad 50.jpg", rating:5 },
+  { id:7, name:"Blue Agbada Jacket", category:"Agbada", price:2500, image:"images/dad 50.jpg", rating:5 },
   { id:8, name:"Agbada Pattern Shirt", category:"Agbada", price:6500, image:"images/dera 1.jpg", rating:4 },
   { id:9, name:"Kente Scarf", category:"Kente", price:7500, image:"images/Heco1.2.jpg", rating:4 },
   { id:10, name:"Kente Scarf", category:"Kente", price:6500, image:"images/dera 2.jpg", rating:5 },
-   { id:10, name:"Kente Scarf", category:"Kente", price:4500, image:"images/osore.jpg", rating:5 },
+   { id:10, name:"Kente Scarf", category:"Kente", price:2500, image:"images/osore.jpg", rating:5 },
 ];
 
 let cart = JSON.parse(localStorage.getItem('st_cart') || '[]');
@@ -154,6 +154,7 @@ function setupMobileMenu() {
 // Expose functions
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
+
 
 
 
