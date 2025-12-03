@@ -13,7 +13,7 @@ const products = [
    { id:10, name:"kaftan shirt", category:"Kaftan shirt", price:2500, image:"images/osore.jpg", rating:5 },
    { id:10, name:"Agbada", category:"Agbada for kids", price:12000, image:"images/agbada.jpg", rating:5 },
    { id:10, name:"Temple Ties", category:"Temple Ties", price:1000, image:"images/ties.jpg", rating:5 },
-   { id:10, name:"kitenge Court", category:"Kitenge court", price:7000, image:"images/court luder.jpg", rating:5 },
+   { id:10, name:"kitenge Court", category:"kitenge court", price:7000, image:"images/court luder.jpg", rating:5 },
    { id:10, name:"Hoodey", category:"Hoodey", price:3000, image:"images/red hoodey.jpg", rating:5 },
 ];
 
@@ -158,6 +158,7 @@ function setupMobileMenu() {
 // Expose functions
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
+
 
 
 
