@@ -154,3 +154,4 @@ function setupMobileMenu() {
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
 
+
