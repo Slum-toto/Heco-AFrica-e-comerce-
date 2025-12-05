@@ -211,6 +211,96 @@
       color: var(--dark);
     }
 
+    /* ===== PRICING SECTION ===== */
+    .pricing-section {
+      padding: 60px 5%;
+      background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+      border-radius: 20px;
+      margin: 20px 5%;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .pricing-card {
+      background: white;
+      padding: 30px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      border: 2px solid transparent;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--primary);
+    }
+
+    .pricing-card.popular {
+      border-color: var(--accent);
+      position: relative;
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: white;
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .price-amount {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin: 15px 0;
+    }
+
+    .price-amount .currency {
+      font-size: 1.5rem;
+      vertical-align: super;
+    }
+
+    .pricing-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+
+    .price-features {
+      list-style: none;
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .price-features li {
+      margin-bottom: 10px;
+      padding-left: 30px;
+      position: relative;
+      color: var(--gray);
+    }
+
+    .price-features li:before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
     /* ===== APPLICATION FORM ===== */
     .application-section {
       padding: 60px 5%;
@@ -524,6 +614,15 @@
         min-width: 300px;
       }
       
+      .pricing-section {
+        padding: 80px 8%;
+        margin: 40px 8%;
+      }
+      
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
       .application-section {
         padding: 80px 8%;
         margin: 40px 8%;
@@ -570,6 +669,15 @@
       
       .tour-details {
         padding: 100px 10%;
+      }
+      
+      .pricing-section {
+        padding: 100px 10%;
+        margin: 60px 10%;
+      }
+      
+      .pricing-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
       
       .application-section {
@@ -647,7 +755,7 @@
         <div class="schedule-item">
           <i class="fas fa-money-bill-wave"></i>
           <h4>Contribution</h4>
-          <p>$50 per person</p>
+          <p>From $20 per person</p>
         </div>
       </div>
       <p style="margin-top: 20px; color: var(--gray);">All contributions directly support HECO-Africa community programs</p>
@@ -666,10 +774,69 @@
     </div>
   </section>
 
+  <!-- ===== PRICING SECTION ===== -->
+  <section class="pricing-section">
+    <h2 class="section-title">Tour Pricing</h2>
+    <p style="text-align: center; color: var(--gray); max-width: 700px; margin: 20px auto 0;">Choose the pricing option that fits your group. All prices are per person and contribute directly to community development projects.</p>
+    
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Children (Under 16)</h3>
+        <div class="price-amount">
+          <span class="currency">$</span>20
+        </div>
+        <ul class="price-features">
+          <li>Full guided tour experience</li>
+          <li>Safety equipment provided</li>
+          <li>Traditional meal included</li>
+          <li>Educational materials</li>
+          <li>Must be accompanied by adult</li>
+        </ul>
+      </div>
+      
+      <div class="pricing-card popular">
+        <div class="popular-badge">MOST POPULAR</div>
+        <h3>Adults</h3>
+        <div class="price-amount">
+          <span class="currency">$</span>40
+        </div>
+        <ul class="price-features">
+          <li>Full guided tour experience</li>
+          <li>Safety equipment provided</li>
+          <li>Traditional meal included</li>
+          <li>Educational materials</li>
+          <li>Community donation included</li>
+          <li>Certificate of participation</li>
+        </ul>
+      </div>
+      
+      <div class="pricing-card">
+        <h3>Group (6+ People)</h3>
+        <div class="price-amount">
+          <span class="currency">$</span>35
+          <span style="font-size: 1rem; color: var(--gray); display: block; margin-top: 5px;">per adult</span>
+        </div>
+        <ul class="price-features">
+          <li>Special group rate</li>
+          <li>Private tour guide</li>
+          <li>Traditional meal included</li>
+          <li>Educational materials</li>
+          <li>Community donation included</li>
+          <li>Certificate for all participants</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 40px; padding: 20px; background: rgba(0,123,255,0.05); border-radius: var(--border-radius);">
+      <p style="color: var(--dark); font-weight: 600; margin-bottom: 10px;"><i class="fas fa-info-circle" style="color: var(--primary); margin-right: 8px;"></i>Important Note</p>
+      <p style="color: var(--gray); font-size: 0.95rem;">Children under 16 must be accompanied by at least one adult. For large groups (10+ people), please contact us for special arrangements.</p>
+    </div>
+  </section>
+
   <!-- ===== APPLICATION FORM ===== -->
   <section class="application-section">
     <h2 class="section-title">Apply for the Tour</h2>
-    <p style="text-align: center; color: var(--gray); max-width: 700px; margin: 20px auto 0;">Fill out the form below to book your spot. We'll contact you within 24 hours to confirm your booking.</p>
+    <p style="text-align: center; color: var(--gray); max-width: 700px; margin: 20px auto 0;">Fill out the form below to book your spot. We'll contact you within 24 hours to confirm your booking and provide payment details.</p>
     
     <form id="tourApplicationForm" class="application-form">
       <div class="form-row">
@@ -732,6 +899,36 @@
 
       <div class="form-row">
         <div class="form-group">
+          <label for="adults">Number of Adults (16+) <span class="required">*</span></label>
+          <select id="adults" name="adults" required>
+            <option value="">Select adults</option>
+            <option value="0">0 Adults</option>
+            <option value="1">1 Adult</option>
+            <option value="2">2 Adults</option>
+            <option value="3">3 Adults</option>
+            <option value="4">4 Adults</option>
+            <option value="5">5 Adults</option>
+            <option value="6+">6+ Adults</option>
+          </select>
+          <div class="error" id="adultsError">Please select number of adults</div>
+        </div>
+        
+        <div class="form-group">
+          <label for="children">Number of Children (Under 16)</label>
+          <select id="children" name="children">
+            <option value="0">0 Children</option>
+            <option value="1">1 Child</option>
+            <option value="2">2 Children</option>
+            <option value="3">3 Children</option>
+            <option value="4">4 Children</option>
+            <option value="5">5 Children</option>
+            <option value="6+">6+ Children</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
           <label for="preferredDate">Preferred Tour Date <span class="required">*</span></label>
           <input type="date" id="preferredDate" name="preferredDate" required>
           <div class="error" id="dateError">Please select a preferred date</div>
@@ -768,14 +965,14 @@
       <div class="confirmation-message" id="confirmationMessage">
         <i class="fas fa-check-circle"></i>
         <h3>Application Submitted Successfully!</h3>
-        <p>Thank you for applying for the HECO-Africa Slum Tour. We have received your application and will contact you within 24 hours to confirm your booking.</p>
+        <p>Thank you for applying for the HECO-Africa Slum Tour. We have received your application and will contact you within 24 hours to confirm your booking and provide payment details.</p>
         <p style="margin-top: 15px; font-size: 0.9rem;">A confirmation has been sent to <strong>theobasanjogolding@gmail.com</strong> and <strong>hecoafrica@gmail.com</strong></p>
       </div>
 
       <!-- WhatsApp Option -->
       <div class="whatsapp-option">
         <p>Prefer to apply via WhatsApp? Click below:</p>
-        <a href="https://wa.me/254705379295?text=Hello%20HECO-Africa!%20I%20would%20like%20to%20apply%20for%20the%20Slum%20Tour." 
+        <a href="https://wa.me/254705379295?text=Hello%20HECO-Africa!%20I%20would%20like%20to%20apply%20for%20the%20Slum%20Tour.%20I%20have%20questions%20about%20pricing." 
            class="whatsapp-btn" target="_blank">
           <i class="fab fa-whatsapp"></i> Apply via WhatsApp
         </a>
@@ -817,197 +1014,4 @@
           <li><a href="splash.html">Our Shop</a></li>
         </ul>
       </div>
-    </div>
     
-    <div class="copyright">
-      &copy; 2025 HECO-AFRICA – With the heart of compassion. All rights reserved.
-    </div>
-  </footer>
-
-  <script>
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-
-    // Form validation and submission
-    document.getElementById('tourApplicationForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Reset previous errors
-      resetErrors();
-      
-      // Validate form
-      if (validateForm()) {
-        // Get form data
-        const formData = {
-          firstName: document.getElementById('firstName').value,
-          lastName: document.getElementById('lastName').value,
-          email: document.getElementById('email').value,
-          phone: document.getElementById('phone').value,
-          nationality: document.getElementById('nationality').value,
-          participants: document.getElementById('participants').value,
-          preferredDate: document.getElementById('preferredDate').value,
-          preferredTime: document.getElementById('preferredTime').value,
-          message: document.getElementById('message').value,
-          timestamp: new Date().toISOString()
-        };
-        
-        // Show loading state
-        const submitBtn = document.getElementById('submitBtn');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-        submitBtn.disabled = true;
-        
-        // Send to both emails (simulated)
-        sendEmails(formData);
-        
-        // Send WhatsApp notification (simulated)
-        sendWhatsAppNotification(formData);
-        
-        // Show success message after delay
-        setTimeout(() => {
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-          showConfirmation();
-          
-          // Reset form
-          document.getElementById('tourApplicationForm').reset();
-        }, 2000);
-      }
-    });
-
-    // Form validation function
-    function validateForm() {
-      let isValid = true;
-      
-      // Check required fields
-      const requiredFields = [
-        'firstName', 'lastName', 'email', 'phone', 
-        'nationality', 'participants', 'preferredDate'
-      ];
-      
-      requiredFields.forEach(fieldId => {
-        const field = document.getElementById(fieldId);
-        const errorElement = document.getElementById(fieldId + 'Error');
-        
-        if (!field.value.trim()) {
-          showError(field, errorElement);
-          isValid = false;
-        } else if (fieldId === 'email' && !isValidEmail(field.value)) {
-          showError(field, errorElement, 'Please enter a valid email address');
-          isValid = false;
-        } else if (fieldId === 'phone' && !isValidPhone(field.value)) {
-          showError(field, errorElement, 'Please enter a valid phone number');
-          isValid = false;
-        }
-      });
-      
-      // Check terms agreement
-      const termsCheckbox = document.getElementById('terms');
-      const termsError = document.getElementById('termsError');
-      
-      if (!termsCheckbox.checked) {
-        termsError.style.display = 'block';
-        isValid = false;
-      }
-      
-      return isValid;
-    }
-
-    // Helper functions
-    function isValidEmail(email) {
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return re.test(email);
-    }
-
-    function isValidPhone(phone) {
-      // Basic phone validation - accepts numbers, spaces, +, -, ()
-      const re = /^[\+]?[0-9\s\-\(\)]+$/;
-      return re.test(phone) && phone.replace(/\D/g, '').length >= 8;
-    }
-
-    function showError(field, errorElement, customMessage = null) {
-      field.classList.add('error-border');
-      errorElement.textContent = customMessage || errorElement.textContent;
-      errorElement.style.display = 'block';
-    }
-
-    function resetErrors() {
-      // Remove error borders
-      document.querySelectorAll('.error-border').forEach(el => {
-        el.classList.remove('error-border');
-      });
-      
-      // Hide error messages
-      document.querySelectorAll('.error').forEach(el => {
-        el.style.display = 'none';
-      });
-    }
-
-    function showConfirmation() {
-      const confirmation = document.getElementById('confirmationMessage');
-      confirmation.style.display = 'block';
-      
-      // Scroll to confirmation
-      confirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      
-      // Hide after 10 seconds
-      setTimeout(() => {
-        confirmation.style.display = 'none';
-      }, 10000);
-    }
-
-    // Simulate sending emails
-    function sendEmails(formData) {
-      const emailBody = `
-        New Slum Tour Application:
-        
-        Name: ${formData.firstName} ${formData.lastName}
-        Email: ${formData.email}
-        Phone: ${formData.phone}
-        Nationality: ${formData.nationality}
-        Participants: ${formData.participants}
-        Preferred Date: ${formData.preferredDate}
-        Preferred Time: ${formData.preferredTime}
-        Message: ${formData.message || 'None'}
-        
-        Submitted: ${new Date(formData.timestamp).toLocaleString()}
-      `;
-      
-      // In a real implementation, you would use:
-      // 1. Formspree, EmailJS, or similar service
-      // 2. Backend API to send emails
-      // 3. Or mailto: links (less reliable)
-      
-      console.log('Email sent to: theobasanjogolding@gmail.com');
-      console.log('Email sent to: hecoafrica@gmail.com');
-      console.log('Email content:', emailBody);
-      
-      // For actual implementation, you would use:
-      // fetch('your-backend-endpoint', { method: 'POST', body: JSON.stringify(formData) })
-    }
-
-    // Simulate WhatsApp notification
-    function sendWhatsAppNotification(formData) {
-      const whatsappMessage = `New Slum Tour Application from ${formData.firstName} ${formData.lastName}. Email: ${formData.email}, Phone: ${formData.phone}, Date: ${formData.preferredDate}. Check email for full details.`;
-      
-      console.log('WhatsApp notification sent to +254705379295');
-      console.log('Message:', whatsappMessage);
-      
-      // In a real implementation, you would use WhatsApp Business API
-      // Or trigger a notification to the phone number
-    }
-
-    // Set minimum date to today
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById('preferredDate').min = today;
-  </script>
-</body>
-</html>
-
