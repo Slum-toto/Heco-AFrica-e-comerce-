@@ -1,7 +1,7 @@
 // Main script for HECO-Africa Shop
 const products = [
   { id:1, name:"kaftan shirt", category:"kaftan", price:2500, image:"images/Dad 1.jpg", rating:4, isNew:true },
-    { id:10, name:"University gown", category:"University gown", price:35000, image:"images/Agbada 555.jpg", rating:5, isNew:true },
+    { id:10, name:"", category:"", price:35000, image:"images/Agbada 555.jpg", rating:5, isNew:true },
   { id:10, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 3.jpg", rating:5, isNew:true },
   { id:2, name:"Kaftan shirt", category:"Kaftan ", price:2500, image:"images/dad 2.jpg", rating:5, isNew:true },
   { id:3, name:"west african dress", category:"Ankara", price:7500, image:"images/martin 3.jpg", rating:4 },
@@ -165,6 +165,7 @@ function setupMobileMenu() {
 // Expose functions
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
+
 
 
 
