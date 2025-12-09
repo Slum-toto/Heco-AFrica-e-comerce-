@@ -3,6 +3,7 @@ const products = [
   { id:1, name:"kaftan shirt", category:"kaftan", price:2500, image:"images/Dad 1.jpg", rating:4, isNew:true },
     { id:10, name:"University gown", category:"university gown", price:35000, image:"images/Agbada 555.jpg", rating:5, isNew:true },
   { id:10, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 3.jpg", rating:5, isNew:true },
+  { id:10, name:"improved kaunda suit", category:"improve kaunda suit", price:11500, image:"images/rto 11500.jpg", rating:5, isNew:true },
   { id:2, name:"Kaftan shirt", category:"Kaftan ", price:2500, image:"images/dad 2.jpg", rating:5, isNew:true },
   { id:3, name:"west african dress", category:"Ankara", price:7500, image:"images/martin 3.jpg", rating:4 },
   { id:4, name:"kids west african shirt", category:"Ankara", price:1500, image:"images/martin 2.jpg", rating:3 },
@@ -165,6 +166,7 @@ function setupMobileMenu() {
 // Expose functions
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
+
 
 
 
