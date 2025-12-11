@@ -1,30 +1,22 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Slumtotos-Africa Academy</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Heco-Africa</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <div id="page-container">
-
     <!-- GOAT HEADER -->
     <header class="goat-header">
-
       <!-- BRAND -->
       <div class="goat-brand">
         <img src="images/HECO-AFRICA (3).png" alt="HECO Africa" class="goat-logo">
         <h1 class="goat-title">HECO-Africa</h1>
       </div>
-
-      <!-- SEARCH BAR -->
-      <div class="goat-search">
-        <input type="text" placeholder="Search West African Fashion…" id="search">
-        <span class="search-icon">🔍</span>
-      </div>
-
       <!-- NAVIGATION -->
       <nav class="goat-nav" id="goatNav">
         <ul>
@@ -35,16 +27,29 @@
           <li><a href="#" class="goat-btn">Contact</a></li>
         </ul>
       </nav>
-
       <!-- CART BUTTON -->
       <button class="cart-display goat-cart" id="cart-btn">
         🛒 <span id="cart-count">0</span>
       </button>
-
       <!-- MOBILE MENU BUTTON -->
       <div class="goat-menu-btn" id="menuBtn">☰</div>
-
     </header>
+
+    <!-- MOBILE SIDEBAR -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="mobile-sidebar" id="mobileSidebar">
+      <div class="mobile-sidebar-header">
+        <h2>Menu</h2>
+        <button class="close-sidebar" id="closeSidebar">×</button>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About</a></li>
+        <li><a href="splash.html">Shop</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+        <li><a href="#" class="goat-btn">Contact</a></li>
+      </ul>
+    </div>
 
     <!-- CATEGORY FILTERS -->
     <section id="category-filters" class="filters">
@@ -60,15 +65,24 @@
       <div id="product-list" class="grid"></div>
     </main>
 
+    <!-- FLOATING SEARCH BUTTON -->
+    <button class="floating-search-btn" id="floatingSearchBtn">🔍</button>
+
+    <!-- SEARCH OVERLAY -->
+    <div class="search-overlay" id="searchOverlay">
+      <button class="close-search" id="closeSearch">×</button>
+      <div class="search-box">
+        <input type="text" placeholder="Search West African Fashion…" id="search" autofocus>
+      </div>
+    </div>
+
     <!-- CART SIDEBAR -->
     <aside id="cart-sidebar" aria-hidden="true">
       <div class="cart-header">
         <h2>Your Cart</h2>
         <button id="close-cart">×</button>
       </div>
-
       <div id="cart-items"></div>
-
       <div id="cart-summary" class="cart-summary">
         <strong>Total:</strong> <span id="cart-total">KES 0</span>
         <a href="checkout.html" class="checkout-btn">Go to Checkout</a>
@@ -86,11 +100,7 @@
         &copy; 2025 HECO-AFRICA – With the heart of compassion
       </p>
     </footer>
-
   </div>
-
+  </body>
   <script src="script.js"></script>
-</body>
 </html>
-
-
