@@ -14,7 +14,7 @@ const products = [
   { id: 9, name: "Blouse", category: "Blouse", price: 7500, image: "images/Heco1.2.jpg", rating: 4 },
   { id: 10, name: "University gown", category: "University", price: 35000, image: "images/Agbada 555.jpg", rating: 5, isNew: true },
   { id: 11, name: "Agbada", category: "Agbada", price: 35000, image: "images/agbada 3.jpg", rating: 5, isNew: true },
-  { id: 12, name: "improved kaunda suit", category: "Agbada", price: 11500, image: "images/rto 11500.jpg", rating: 5, isNew: true },
+  { id: 12, name: " The Latest kaunda suit", category: "Agbada", price: 11500, image: "images/rto 11500.jpg", rating: 5, isNew: true },
   { id: 13, name: "Agbada", category: "Agbada", price: 15000, image: "images/green.jpg", rating: 3 },
   { id: 14, name: "university gown", category: "University", price: 15000, image: "images/gown 1.jpg", rating: 3 },
   { id: 15, name: "Agbada", category: "Agbada", price: 35000, image: "images/agbada 7.jpg", rating: 5 },
@@ -391,6 +391,7 @@ function setupFloatingSearch() {
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
 window.toggleLike = toggleLike;
+
 
 
 
