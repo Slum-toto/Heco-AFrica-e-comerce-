@@ -1,36 +1,35 @@
 // Main script for HECO-Africa Shop
 const products = [
-  { id:1, name:"kaftan shirt", category:"Kaftan", price:2500, image:"images/Dad 1.jpg", rating:4, isNew:true },
-  { id:10, name:"University gown", category:"University", price:35000, image:"images/Agbada 555.jpg", rating:5, isNew:true },
+  { id:1, name:"kaftan shirt", category:"kaftan", price:2500, image:"images/Dad 1.jpg", rating:4, isNew:true },
+  { id:10, name:"University gown", category:"university gown", price:35000, image:"images/Agbada 555.jpg", rating:5, isNew:true },
   { id:11, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 3.jpg", rating:5, isNew:true },
-  { id:12, name:"improved kaunda suit", category:"Kaunda", price:11500, image:"images/rto 11500.jpg", rating:5, isNew:true },
-  { id:2, name:"Kaftan shirt", category:"Kaftan", price:2500, image:"images/dad 2.jpg", rating:5, isNew:true },
+  { id:12, name:"improved kaunda suit", category:"improve kaunda suit", price:11500, image:"images/rto 11500.jpg", rating:5, isNew:true },
+  { id:2, name:"Kaftan shirt", category:"Kaftan ", price:2500, image:"images/dad 2.jpg", rating:5, isNew:true },
   { id:3, name:"west african dress", category:"Ankara", price:7500, image:"images/martin 3.jpg", rating:4 },
   { id:4, name:"kids west african shirt", category:"Ankara", price:1500, image:"images/martin 2.jpg", rating:3 },
   { id:13, name:"Agbada", category:"Agbada", price:15000, image:"images/green.jpg", rating:3 },
-  { id:14, name:"university gown", category:"University", price:15000, image:"images/gown 1.jpg", rating:3 },
+  { id:14, name:"university gown", category:"university gown", price:15000, image:"images/gown 1.jpg", rating:3 },
   { id:5, name:"west african kitenge", category:"Casual", price:4500, image:"images/mama 2.jpg", rating:4 },
-  { id:6, name:"Dress", category:"BouBou", price:7500, image:"images/mama 1.jpg", rating:3 },
+  { id:6, name:"Dress", category:"dress", price:7500, image:"images/mama 1.jpg", rating:3 },
   { id:7, name:"Kaftan", category:"Kaftan", price:2500, image:"images/dad 50.jpg", rating:5 },
   { id:15, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 7.jpg", rating:5 },
-  { id:16, name:"University gowns", category:"University", price:15000, image:"images/gown 2.jpg", rating:3 },
-  { id:8, name:"baubaus", category:"BouBou", price:4500, image:"images/dera 1.jpg", rating:4 },
+  { id:16, name:"University gowns", category:"university gowns", price:15000, image:"images/gown 2.jpg", rating:3 },
+  { id:8, name:"baubaus", category:"Baubaus", price:4500, image:"images/dera 1.jpg", rating:4 },
   { id:9, name:"Blouse", category:"Blouse", price:7500, image:"images/Heco1.2.jpg", rating:4 },
-  { id:17, name:"Baubau", category:"BouBou", price:4500, image:"images/dera 2.jpg", rating:5 },
+  { id:17, name:"Baubau", category:"Baubaus", price:4500, image:"images/dera 2.jpg", rating:5 },
   { id:18, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 6.jpg", rating:5 },
-  { id:19, name:"kaftan shirt", category:"Kaftan", price:2500, image:"images/osore.jpg", rating:5 },
-  { id:20, name:"Agbada", category:"Agbada", price:12000, image:"images/agbada.jpg", rating:5 },
-  { id:21, name:"Temple Ties", category:"Accessory", price:1000, image:"images/ties.jpg", rating:5 },
+  { id:19, name:"kaftan shirt", category:"Kaftan ", price:2500, image:"images/osore.jpg", rating:5 },
+  { id:20, name:"Agbada", category:"Agbada for kids", price:12000, image:"images/agbada.jpg", rating:5 },
+  { id:21, name:"Temple Ties", category:"Temple Ties", price:1000, image:"images/ties.jpg", rating:5 },
   { id:22, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 4.jpg", rating:5 },
-  { id:23, name:"kitenge Court", category:"Casual", price:7000, image:"images/court luder.jpg", rating:5 },
-  { id:24, name:"Hoodey", category:"Casual", price:3000, image:"images/red hoodey.jpg", rating:5 },
+  { id:23, name:"kitenge Court", category:"kitenge court", price:7000, image:"images/court luder.jpg", rating:5 },
+  { id:24, name:"Hoodey", category:"Hoodey", price:3000, image:"images/red hoodey.jpg", rating:5 },
 ];
 
 let cart = JSON.parse(localStorage.getItem('st_cart') || '[]');
 let likes = JSON.parse(localStorage.getItem('st_likes') || '[]');
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("HECO-Africa Shop loaded!");
   renderProducts(products);
   updateCart();
   setupSearch();
@@ -50,14 +49,9 @@ function saveLikes() {
   localStorage.setItem('st_likes', JSON.stringify(likes));
 }
 
-// Render product cards
+// Render product cards WITH LIKE BUTTON
 function renderProducts(list) {
   const container = document.getElementById('product-list');
-  if (!container) {
-    console.error("Product list container not found!");
-    return;
-  }
-  
   container.innerHTML = '';
 
   list.forEach(p => {
@@ -67,7 +61,7 @@ function renderProducts(list) {
 
     card.innerHTML = `
       <div class="image-wrapper">
-        <img src="${p.image}" alt="${p.name}" loading="lazy">
+        <img src="${p.image}" alt="${p.name}">
         ${p.isNew ? '<div class="badge">NEW</div>' : ''}
         <button class="like-btn ${isLiked ? 'liked' : ''}" onclick="toggleLike(${p.id})">
           ${isLiked ? '❤️' : '🤍'}
@@ -76,7 +70,7 @@ function renderProducts(list) {
       <div class="product-info">
         <h3 class="product-title">${p.name}</h3>
         <div class="rating">${'★'.repeat(p.rating)}${'☆'.repeat(5 - p.rating)}</div>
-        <div class="price">KES ${p.price.toLocaleString()}</div>
+        <div class="price">KES ${p.price}</div>
         <button class="add-btn" onclick="addToCart(${p.id})">Add to cart</button>
       </div>
     `;
@@ -95,50 +89,27 @@ function toggleLike(id) {
   }
   saveLikes();
   
-  // Re-render to update heart icon
-  const searchInput = document.getElementById('search');
-  if (searchInput && searchInput.value) {
-    const q = searchInput.value.toLowerCase();
-    const results = products.filter(p =>
-      p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)
-    );
-    renderProducts(results);
-  } else {
-    renderProducts(products);
+  // Update the like button
+  const likeBtn = document.querySelector(`button[onclick="toggleLike(${id})"]`);
+  if (likeBtn) {
+    const isLiked = likes.includes(id);
+    likeBtn.classList.toggle('liked', isLiked);
+    likeBtn.innerHTML = isLiked ? '❤️' : '🤍';
   }
 }
 
 // Add to cart
 function addToCart(id) {
   const item = cart.find(i => i.id === id);
-  const product = products.find(p => p.id === id);
 
-  if (!product) {
-    console.error(`Product with id ${id} not found!`);
-    return;
-  }
-
-  if (item) {
-    item.quantity++;
-  } else {
-    cart.push({ 
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      image: product.image,
-      quantity: 1 
-    });
+  if (item) item.quantity++;
+  else {
+    const product = products.find(p => p.id === id);
+    cart.push({ ...product, quantity: 1 });
   }
 
   saveCart();
   updateCart();
-  
-  // Show visual feedback
-  const cartBtn = document.getElementById('cart-btn');
-  if (cartBtn) {
-    cartBtn.classList.add('pulse');
-    setTimeout(() => cartBtn.classList.remove('pulse'), 300);
-  }
 }
 
 // Remove from cart
@@ -154,49 +125,37 @@ function updateCart() {
   const itemsEl = document.getElementById('cart-items');
   const totalEl = document.getElementById('cart-total');
 
-  if (!countEl || !itemsEl || !totalEl) {
-    console.error("Cart elements not found!");
-    return;
-  }
-
-  const totalCount = cart.reduce((t, i) => t + i.quantity, 0);
-  countEl.textContent = totalCount;
+  countEl.textContent = cart.reduce((t, i) => t + i.quantity, 0);
 
   itemsEl.innerHTML = '';
   let total = 0;
 
-  if (cart.length === 0) {
-    itemsEl.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
-  } else {
-    cart.forEach(item => {
-      total += item.price * item.quantity;
+  cart.forEach(item => {
+    total += item.price * item.quantity;
 
-      const div = document.createElement('div');
-      div.className = 'cart-item';
+    const div = document.createElement('div');
+    div.className = 'cart-item';
 
-      div.innerHTML = `
-        <div class="cart-item-info">
-          <strong>${item.name}</strong><br>
-          <small>KES ${item.price.toLocaleString()} × ${item.quantity}</small>
-        </div>
-        <div class="cart-item-actions">
-          KES ${(item.price * item.quantity).toLocaleString()}<br>
-          <button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button>
-        </div>
-      `;
+    div.innerHTML = `
+      <div>
+        <strong>${item.name}</strong><br>
+        Qty: ${item.quantity}
+      </div>
+      <div style="text-align:right">
+        KES ${item.price * item.quantity}<br>
+        <button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button>
+      </div>
+    `;
 
-      itemsEl.appendChild(div);
-    });
-  }
+    itemsEl.appendChild(div);
+  });
 
-  totalEl.textContent = `KES ${total.toLocaleString()}`;
+  totalEl.textContent = `KES ${total}`;
 }
 
 // Search
 function setupSearch() {
   const search = document.getElementById('search');
-  if (!search) return;
-  
   search.addEventListener('input', () => {
     const q = search.value.toLowerCase();
     const results = products.filter(p =>
@@ -206,30 +165,19 @@ function setupSearch() {
   });
 }
 
-// Filters - FIXED to match your product categories
+// Filters
 function setupFilters() {
-  const filterButtons = document.querySelectorAll("#category-filters button");
-  if (filterButtons.length === 0) {
-    console.error("Filter buttons not found!");
-    return;
-  }
-  
-  filterButtons.forEach(btn => {
+  document.querySelectorAll("#category-filters button").forEach(btn => {
     btn.addEventListener("click", () => {
       let cat = btn.dataset.cat;
-      console.log(`Filtering by: ${cat}`);
-      
-      if (cat === "All") {
-        renderProducts(products);
-      } else {
-        // Map HTML button categories to product categories
+      if (cat === "All") renderProducts(products);
+      else {
         const categoryMap = {
-          "Kente": "Kaftan",        // Your HTML says Kente but displays Kaftan
+          "Kente": "Kaftan",
           "Agbada": "Agbada",
-          "Ankara": "BouBou",       // Your HTML says Ankara but displays BouBou
-          "Casual": "Blouse"        // Your HTML says Casual but displays blouse
+          "Ankara": "Ankara",
+          "Casual": "Casual"
         };
-        
         const targetCategory = categoryMap[cat] || cat;
         const results = products.filter(p => p.category === targetCategory);
         renderProducts(results);
@@ -238,53 +186,41 @@ function setupFilters() {
   });
 }
 
-// Sidebar controls
+// Cart controls
 function setupCartControls() {
-  const cartBtn = document.getElementById("cart-btn");
-  const closeBtn = document.getElementById("close-cart");
   const sidebar = document.getElementById("cart-sidebar");
-  
-  if (!cartBtn || !closeBtn || !sidebar) {
-    console.error("Cart control elements not found!");
-    return;
-  }
-  
-  cartBtn.addEventListener("click", () => {
-    sidebar.style.display = 'block';
-    sidebar.setAttribute('aria-hidden', 'false');
-  });
-  
-  closeBtn.addEventListener("click", () => {
-    sidebar.style.display = 'none';
-    sidebar.setAttribute('aria-hidden', 'true');
-  });
+  document.getElementById("cart-btn").addEventListener("click", () => sidebar.classList.add("open"));
+  document.getElementById("close-cart").addEventListener("click", () => sidebar.classList.remove("open"));
 }
 
-// Mobile menu
+// Mobile menu - SLIDES FROM LEFT
 function setupMobileMenu() {
   const btn = document.getElementById("menuBtn");
   const sidebar = document.getElementById("mobileSidebar");
   const overlay = document.getElementById("menuOverlay");
   const closeBtn = document.getElementById("closeSidebar");
 
-  if (!btn || !sidebar || !overlay || !closeBtn) {
-    console.error("Mobile menu elements not found!");
-    return;
-  }
-
   btn.addEventListener("click", () => {
-    sidebar.style.transform = 'translateX(0)';
-    overlay.style.display = 'block';
+    sidebar.classList.add("open");
+    overlay.classList.add("active");
   });
 
   closeBtn.addEventListener("click", () => {
-    sidebar.style.transform = 'translateX(-100%)';
-    overlay.style.display = 'none';
+    sidebar.classList.remove("open");
+    overlay.classList.remove("active");
   });
 
   overlay.addEventListener("click", () => {
-    sidebar.style.transform = 'translateX(-100%)';
-    overlay.style.display = 'none';
+    sidebar.classList.remove("open");
+    overlay.classList.remove("active");
+  });
+
+  // Close sidebar when clicking on any link
+  sidebar.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      sidebar.classList.remove("open");
+      overlay.classList.remove("active");
+    });
   });
 }
 
@@ -294,43 +230,26 @@ function setupFloatingSearch() {
   const overlay = document.getElementById('searchOverlay');
   const closeBtn = document.getElementById('closeSearch');
 
-  if (!floatingBtn || !overlay || !closeBtn) {
-    console.error("Search elements not found!");
-    return;
-  }
-
   floatingBtn.addEventListener('click', () => {
-    overlay.style.display = 'flex';
+    overlay.classList.add('active');
     document.getElementById('search').focus();
   });
 
   closeBtn.addEventListener('click', () => {
-    overlay.style.display = 'none';
+    overlay.classList.remove('active');
   });
 
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) {
-      overlay.style.display = 'none';
+      overlay.classList.remove('active');
     }
   });
 }
 
-// Expose functions to global scope
+// Expose functions
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
 window.toggleLike = toggleLike;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
