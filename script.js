@@ -1,36 +1,43 @@
+
+
+
 // Main script for HECO-Africa Shop
 const products = [
-  { id:1, name:"kaftan shirt", category:"Kaftan", price:2500, image:"images/Dad 1.jpg", rating:4, isNew:true },
-  { id:10, name:"University gown", category:"University", price:35000, image:"images/Agbada 555.jpg", rating:5, isNew:true },
-  { id:11, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 3.jpg", rating:5, isNew:true },
-  { id:12, name:"improved kaunda suit", category:"Kaunda", price:11500, image:"images/rto 11500.jpg", rating:5, isNew:true },
-  { id:2, name:"Kaftan shirt", category:"Kaftan", price:2500, image:"images/dad 2.jpg", rating:5, isNew:true },
-  { id:3, name:"west african dress", category:"Ankara", price:7500, image:"images/martin 3.jpg", rating:4 },
-  { id:4, name:"kids west african shirt", category:"Ankara", price:1500, image:"images/martin 2.jpg", rating:3 },
-  { id:13, name:"Agbada", category:"Agbada", price:15000, image:"images/green.jpg", rating:3 },
-  { id:14, name:"university gown", category:"University", price:15000, image:"images/gown 1.jpg", rating:3 },
-  { id:5, name:"west african kitenge", category:"Casual", price:4500, image:"images/mama 2.jpg", rating:4 },
-  { id:6, name:"Dress", category:"BouBou", price:7500, image:"images/mama 1.jpg", rating:3 },
-  { id:7, name:"Kaftan", category:"Kaftan", price:2500, image:"images/dad 50.jpg", rating:5 },
-  { id:15, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 7.jpg", rating:5 },
-  { id:16, name:"University gowns", category:"University", price:15000, image:"images/gown 2.jpg", rating:3 },
-  { id:8, name:"baubaus", category:"BouBou", price:4500, image:"images/dera 1.jpg", rating:4 },
-  { id:9, name:"Blouse", category:"Blouse", price:7500, image:"images/Heco1.2.jpg", rating:4 },
-  { id:17, name:"Baubau", category:"BouBou", price:4500, image:"images/dera 2.jpg", rating:5 },
-  { id:18, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 6.jpg", rating:5 },
-  { id:19, name:"kaftan shirt", category:"Kaftan", price:2500, image:"images/osore.jpg", rating:5 },
-  { id:20, name:"Agbada", category:"Agbada", price:12000, image:"images/agbada.jpg", rating:5 },
-  { id:21, name:"Temple Ties", category:"Accessory", price:1000, image:"images/ties.jpg", rating:5 },
-  { id:22, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 4.jpg", rating:5 },
-  { id:23, name:"kitenge Court", category:"Casual", price:7000, image:"images/court luder.jpg", rating:5 },
-  { id:24, name:"Hoodey", category:"Casual", price:3000, image:"images/red hoodey.jpg", rating:5 },
+  { id: 1, name: "kaftan shirt", category: "Kaftan", price: 2500, image: "images/Dad 1.jpg", rating: 4, isNew: true },
+  { id: 2, name: "Kaftan shirt", category: "Kaftan", price: 2500, image: "images/dad 2.jpg", rating: 5, isNew: true },
+  { id: 3, name: "west african dress", category: "BouBou", price: 7500, image: "images/martin 3.jpg", rating: 4 },
+  { id: 4, name: "kids west african shirt", category: "BouBou", price: 1500, image: "images/martin 2.jpg", rating: 3 },
+  { id: 5, name: "west african kitenge", category: "Blouse", price: 4500, image: "images/mama 2.jpg", rating: 4 },
+  { id: 6, name: "Dress", category: "BouBou", price: 7500, image: "images/mama 1.jpg", rating: 3 },
+  { id: 7, name: "Kaftan", category: "Kaftan", price: 2500, image: "images/dad 50.jpg", rating: 5 },
+  { id: 8, name: "baubaus", category: "BouBou", price: 4500, image: "images/dera 1.jpg", rating: 4 },
+  { id: 9, name: "Blouse", category: "Blouse", price: 7500, image: "images/Heco1.2.jpg", rating: 4 },
+  { id: 10, name: "University gown", category: "University", price: 35000, image: "images/Agbada 555.jpg", rating: 5, isNew: true },
+  { id: 11, name: "Agbada", category: "Agbada", price: 35000, image: "images/agbada 3.jpg", rating: 5, isNew: true },
+  { id: 12, name: "improved kaunda suit", category: "Agbada", price: 11500, image: "images/rto 11500.jpg", rating: 5, isNew: true },
+  { id: 13, name: "Agbada", category: "Agbada", price: 15000, image: "images/green.jpg", rating: 3 },
+  { id: 14, name: "university gown", category: "University", price: 15000, image: "images/gown 1.jpg", rating: 3 },
+  { id: 15, name: "Agbada", category: "Agbada", price: 35000, image: "images/agbada 7.jpg", rating: 5 },
+  { id: 16, name: "University gowns", category: "University", price: 15000, image: "images/gown 2.jpg", rating: 3 },
+  { id: 17, name: "Baubau", category: "BouBou", price: 4500, image: "images/dera 2.jpg", rating: 5 },
+  { id: 18, name: "Agbada", category: "Agbada", price: 35000, image: "images/agbada 6.jpg", rating: 5 },
+  { id: 19, name: "kaftan shirt", category: "Kaftan", price: 2500, image: "images/osore.jpg", rating: 5 },
+  { id: 20, name: "Agbada", category: "Agbada", price: 12000, image: "images/agbada.jpg", rating: 5 },
+  { id: 21, name: "Temple Ties", category: "Accessory", price: 1000, image: "images/ties.jpg", rating: 5 },
+  { id: 22, name: "Agbada", category: "Agbada", price: 35000, image: "images/agbada 4.jpg", rating: 5 },
+  { id: 23, name: "kitenge Court", category: "Blouse", price: 7000, image: "images/court luder.jpg", rating: 5 },
+  { id: 24, name: "Hoodey", category: "Blouse", price: 3000, image: "images/red hoodey.jpg", rating: 5 }
 ];
 
+// Initialize cart and likes from localStorage
 let cart = JSON.parse(localStorage.getItem('st_cart') || '[]');
 let likes = JSON.parse(localStorage.getItem('st_likes') || '[]');
 
+// DOM Content Loaded Event
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("HECO-Africa Shop loaded!");
+  console.log("HECO-Africa Shop loaded successfully!");
+  
+  // Initialize all components
   renderProducts(products);
   updateCart();
   setupSearch();
@@ -38,19 +45,23 @@ document.addEventListener("DOMContentLoaded", () => {
   setupCartControls();
   setupMobileMenu();
   setupFloatingSearch();
+  
+  // Set first filter as active
+  const firstFilter = document.querySelector('.filters button');
+  if (firstFilter) firstFilter.classList.add('active');
 });
 
-// Save cart
+// Save cart to localStorage
 function saveCart() {
   localStorage.setItem('st_cart', JSON.stringify(cart));
 }
 
-// Save likes
+// Save likes to localStorage
 function saveLikes() {
   localStorage.setItem('st_likes', JSON.stringify(likes));
 }
 
-// Render product cards
+// Render product cards to the grid
 function renderProducts(list) {
   const container = document.getElementById('product-list');
   if (!container) {
@@ -58,92 +69,109 @@ function renderProducts(list) {
     return;
   }
   
+  // Clear container
   container.innerHTML = '';
-
-  list.forEach(p => {
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    const isLiked = likes.includes(p.id);
-
-    card.innerHTML = `
+  
+  // If no products found
+  if (list.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+        <h3>No products found</h3>
+        <p>Try a different search or category</p>
+      </div>
+    `;
+    return;
+  }
+  
+  // Create product cards
+  list.forEach(product => {
+    const isLiked = likes.includes(product.id);
+    
+    const productCard = document.createElement('div');
+    productCard.className = 'product-card';
+    productCard.setAttribute('data-category', product.category);
+    
+    productCard.innerHTML = `
       <div class="image-wrapper">
-        <img src="${p.image}" alt="${p.name}" loading="lazy">
-        ${p.isNew ? '<div class="badge">NEW</div>' : ''}
-        <button class="like-btn ${isLiked ? 'liked' : ''}" onclick="toggleLike(${p.id})">
+        <img src="${product.image}" alt="${product.name}" loading="lazy">
+        ${product.isNew ? '<div class="badge">NEW</div>' : ''}
+        <button class="like-btn ${isLiked ? 'liked' : ''}" onclick="toggleLike(${product.id})">
           ${isLiked ? '❤️' : '🤍'}
         </button>
       </div>
       <div class="product-info">
-        <h3 class="product-title">${p.name}</h3>
-        <div class="rating">${'★'.repeat(p.rating)}${'☆'.repeat(5 - p.rating)}</div>
-        <div class="price">KES ${p.price.toLocaleString()}</div>
-        <button class="add-btn" onclick="addToCart(${p.id})">Add to cart</button>
+        <h3 class="product-title">${product.name}</h3>
+        <div class="rating">${'★'.repeat(product.rating)}${'☆'.repeat(5 - product.rating)}</div>
+        <div class="price">KES ${product.price.toLocaleString()}</div>
+        <button class="add-btn" onclick="addToCart(${product.id})">Add to cart</button>
       </div>
     `;
-
-    container.appendChild(card);
+    
+    container.appendChild(productCard);
   });
 }
 
-// Toggle like
+// Toggle like status for a product
 function toggleLike(id) {
   const index = likes.indexOf(id);
+  
   if (index > -1) {
+    // Remove like
     likes.splice(index, 1);
   } else {
+    // Add like
     likes.push(id);
   }
+  
   saveLikes();
   
-  // Re-render to update heart icon
-  const searchInput = document.getElementById('search');
-  if (searchInput && searchInput.value) {
-    const q = searchInput.value.toLowerCase();
-    const results = products.filter(p =>
-      p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)
-    );
-    renderProducts(results);
-  } else {
-    renderProducts(products);
+  // Update the UI
+  const likeBtn = document.querySelector(`.like-btn[onclick="toggleLike(${id})"]`);
+  if (likeBtn) {
+    likeBtn.classList.toggle('liked');
+    likeBtn.innerHTML = likeBtn.classList.contains('liked') ? '❤️' : '🤍';
   }
 }
 
-// Add to cart
+// Add product to cart
 function addToCart(id) {
-  const item = cart.find(i => i.id === id);
   const product = products.find(p => p.id === id);
-
   if (!product) {
     console.error(`Product with id ${id} not found!`);
     return;
   }
-
-  if (item) {
-    item.quantity++;
+  
+  const existingItem = cart.find(item => item.id === id);
+  
+  if (existingItem) {
+    existingItem.quantity += 1;
   } else {
-    cart.push({ 
+    cart.push({
       id: product.id,
       name: product.name,
       price: product.price,
       image: product.image,
-      quantity: 1 
+      quantity: 1
     });
   }
-
+  
   saveCart();
   updateCart();
   
-  // Show visual feedback
+  // Visual feedback
   const cartBtn = document.getElementById('cart-btn');
   if (cartBtn) {
     cartBtn.classList.add('pulse');
     setTimeout(() => cartBtn.classList.remove('pulse'), 300);
   }
+  
+  // Show success message (optional)
+  console.log(`${product.name} added to cart!`);
 }
 
-// Remove from cart
+// Remove product from cart
 function removeFromCart(id) {
-  cart = cart.filter(i => i.id !== id);
+  cart = cart.filter(item => item.id !== id);
   saveCart();
   updateCart();
 }
@@ -153,175 +181,216 @@ function updateCart() {
   const countEl = document.getElementById('cart-count');
   const itemsEl = document.getElementById('cart-items');
   const totalEl = document.getElementById('cart-total');
-
+  
   if (!countEl || !itemsEl || !totalEl) {
     console.error("Cart elements not found!");
     return;
   }
-
-  const totalCount = cart.reduce((t, i) => t + i.quantity, 0);
-  countEl.textContent = totalCount;
-
+  
+  // Update cart count
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+  countEl.textContent = totalItems;
+  
+  // Clear cart items
   itemsEl.innerHTML = '';
-  let total = 0;
-
+  
   if (cart.length === 0) {
     itemsEl.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
-  } else {
-    cart.forEach(item => {
-      total += item.price * item.quantity;
-
-      const div = document.createElement('div');
-      div.className = 'cart-item';
-
-      div.innerHTML = `
-        <div class="cart-item-info">
-          <strong>${item.name}</strong><br>
-          <small>KES ${item.price.toLocaleString()} × ${item.quantity}</small>
-        </div>
-        <div class="cart-item-actions">
-          KES ${(item.price * item.quantity).toLocaleString()}<br>
-          <button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button>
-        </div>
-      `;
-
-      itemsEl.appendChild(div);
-    });
-  }
-
-  totalEl.textContent = `KES ${total.toLocaleString()}`;
-}
-
-// Search
-function setupSearch() {
-  const search = document.getElementById('search');
-  if (!search) return;
-  
-  search.addEventListener('input', () => {
-    const q = search.value.toLowerCase();
-    const results = products.filter(p =>
-      p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)
-    );
-    renderProducts(results);
-  });
-}
-
-// Filters - FIXED to match your product categories
-function setupFilters() {
-  const filterButtons = document.querySelectorAll("#category-filters button");
-  if (filterButtons.length === 0) {
-    console.error("Filter buttons not found!");
+    totalEl.textContent = 'KES 0';
     return;
   }
   
-  filterButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      let cat = btn.dataset.cat;
-      console.log(`Filtering by: ${cat}`);
+  // Calculate total and display items
+  let totalAmount = 0;
+  
+  cart.forEach(item => {
+    const itemTotal = item.price * item.quantity;
+    totalAmount += itemTotal;
+    
+    const cartItem = document.createElement('div');
+    cartItem.className = 'cart-item';
+    
+    cartItem.innerHTML = `
+      <div class="cart-item-info">
+        <strong>${item.name}</strong><br>
+        <small>KES ${item.price.toLocaleString()} × ${item.quantity}</small>
+      </div>
+      <div class="cart-item-actions">
+        KES ${itemTotal.toLocaleString()}<br>
+        <button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button>
+      </div>
+    `;
+    
+    itemsEl.appendChild(cartItem);
+  });
+  
+  // Update total
+  totalEl.textContent = `KES ${totalAmount.toLocaleString()}`;
+}
+
+// Setup search functionality
+function setupSearch() {
+  const searchInput = document.getElementById('search');
+  if (!searchInput) return;
+  
+  searchInput.addEventListener('input', function() {
+    const query = this.value.toLowerCase().trim();
+    
+    if (query.length === 0) {
+      renderProducts(products);
+      return;
+    }
+    
+    const results = products.filter(product => {
+      return (
+        product.name.toLowerCase().includes(query) ||
+        product.category.toLowerCase().includes(query)
+      );
+    });
+    
+    renderProducts(results);
+  });
+  
+  // Clear search when overlay closes
+  const closeSearchBtn = document.getElementById('closeSearch');
+  if (closeSearchBtn) {
+    closeSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      renderProducts(products);
+    });
+  }
+}
+
+// Setup category filters
+function setupFilters() {
+  const filterButtons = document.querySelectorAll('.filters button');
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => btn.classList.remove('active'));
       
-      if (cat === "All") {
+      // Add active class to clicked button
+      this.classList.add('active');
+      
+      const category = this.getAttribute('data-cat');
+      
+      if (category === 'All') {
         renderProducts(products);
       } else {
-        // Map HTML button categories to product categories
-        const categoryMap = {
-          "Kente": "Kaftan",        // Your HTML says Kente but displays Kaftan
-          "Agbada": "Agbada",
-          "Ankara": "BouBou",       // Your HTML says Ankara but displays BouBou
-          "Casual": "Blouse"        // Your HTML says Casual but displays blouse
-        };
-        
-        const targetCategory = categoryMap[cat] || cat;
-        const results = products.filter(p => p.category === targetCategory);
-        renderProducts(results);
+        const filteredProducts = products.filter(
+          product => product.category === category
+        );
+        renderProducts(filteredProducts);
       }
     });
   });
 }
 
-// Sidebar controls
+// Setup cart controls (open/close sidebar)
 function setupCartControls() {
-  const cartBtn = document.getElementById("cart-btn");
-  const closeBtn = document.getElementById("close-cart");
-  const sidebar = document.getElementById("cart-sidebar");
+  const cartBtn = document.getElementById('cart-btn');
+  const closeCartBtn = document.getElementById('close-cart');
+  const cartSidebar = document.getElementById('cart-sidebar');
   
-  if (!cartBtn || !closeBtn || !sidebar) {
+  if (!cartBtn || !closeCartBtn || !cartSidebar) {
     console.error("Cart control elements not found!");
     return;
   }
   
-  cartBtn.addEventListener("click", () => {
-    sidebar.style.display = 'block';
-    sidebar.setAttribute('aria-hidden', 'false');
+  // Open cart
+  cartBtn.addEventListener('click', () => {
+    cartSidebar.classList.add('open');
   });
   
-  closeBtn.addEventListener("click", () => {
-    sidebar.style.display = 'none';
-    sidebar.setAttribute('aria-hidden', 'true');
+  // Close cart
+  closeCartBtn.addEventListener('click', () => {
+    cartSidebar.classList.remove('open');
   });
-}
-
-// Mobile menu
-function setupMobileMenu() {
-  const btn = document.getElementById("menuBtn");
-  const sidebar = document.getElementById("mobileSidebar");
-  const overlay = document.getElementById("menuOverlay");
-  const closeBtn = document.getElementById("closeSidebar");
-
-  if (!btn || !sidebar || !overlay || !closeBtn) {
-    console.error("Mobile menu elements not found!");
-    return;
-  }
-
-  btn.addEventListener("click", () => {
-    sidebar.style.transform = 'translateX(0)';
-    overlay.style.display = 'block';
-  });
-
-  closeBtn.addEventListener("click", () => {
-    sidebar.style.transform = 'translateX(-100%)';
-    overlay.style.display = 'none';
-  });
-
-  overlay.addEventListener("click", () => {
-    sidebar.style.transform = 'translateX(-100%)';
-    overlay.style.display = 'none';
-  });
-}
-
-// Floating Search Setup
-function setupFloatingSearch() {
-  const floatingBtn = document.getElementById('floatingSearchBtn');
-  const overlay = document.getElementById('searchOverlay');
-  const closeBtn = document.getElementById('closeSearch');
-
-  if (!floatingBtn || !overlay || !closeBtn) {
-    console.error("Search elements not found!");
-    return;
-  }
-
-  floatingBtn.addEventListener('click', () => {
-    overlay.style.display = 'flex';
-    document.getElementById('search').focus();
-  });
-
-  closeBtn.addEventListener('click', () => {
-    overlay.style.display = 'none';
-  });
-
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) {
-      overlay.style.display = 'none';
+  
+  // Close cart when clicking outside (on overlay)
+  cartSidebar.addEventListener('click', (e) => {
+    if (e.target === cartSidebar) {
+      cartSidebar.classList.remove('open');
     }
   });
 }
 
-// Expose functions to global scope
+// Setup mobile menu
+function setupMobileMenu() {
+  const menuBtn = document.getElementById('menuBtn');
+  const closeSidebarBtn = document.getElementById('closeSidebar');
+  const mobileSidebar = document.getElementById('mobileSidebar');
+  const menuOverlay = document.getElementById('menuOverlay');
+  
+  if (!menuBtn || !closeSidebarBtn || !mobileSidebar || !menuOverlay) {
+    console.error("Mobile menu elements not found!");
+    return;
+  }
+  
+  // Open menu
+  menuBtn.addEventListener('click', () => {
+    mobileSidebar.classList.add('open');
+    menuOverlay.classList.add('active');
+  });
+  
+  // Close menu
+  closeSidebarBtn.addEventListener('click', () => {
+    mobileSidebar.classList.remove('open');
+    menuOverlay.classList.remove('active');
+  });
+  
+  // Close menu when clicking on overlay
+  menuOverlay.addEventListener('click', () => {
+    mobileSidebar.classList.remove('open');
+    menuOverlay.classList.remove('active');
+  });
+  
+  // Close menu when clicking on links
+  const menuLinks = mobileSidebar.querySelectorAll('a');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileSidebar.classList.remove('open');
+      menuOverlay.classList.remove('active');
+    });
+  });
+}
+
+// Setup floating search button
+function setupFloatingSearch() {
+  const floatingSearchBtn = document.getElementById('floatingSearchBtn');
+  const closeSearchBtn = document.getElementById('closeSearch');
+  const searchOverlay = document.getElementById('searchOverlay');
+  
+  if (!floatingSearchBtn || !closeSearchBtn || !searchOverlay) {
+    console.error("Search elements not found!");
+    return;
+  }
+  
+  // Open search
+  floatingSearchBtn.addEventListener('click', () => {
+    searchOverlay.classList.add('active');
+    const searchInput = document.getElementById('search');
+    if (searchInput) searchInput.focus();
+  });
+  
+  // Close search
+  closeSearchBtn.addEventListener('click', () => {
+    searchOverlay.classList.remove('active');
+  });
+  
+  // Close search when clicking on overlay
+  searchOverlay.addEventListener('click', (e) => {
+    if (e.target === searchOverlay) {
+      searchOverlay.classList.remove('active');
+    }
+  });
+}
+
+// Make functions available globally
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
 window.toggleLike = toggleLike;
-
-
-
 
 
 
