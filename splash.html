@@ -1,14 +1,10 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HECO-Africa - West African Fashion</title>
+  <title>HECO-Africa</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="icon" href="images/HECO-AFRICA (3).png" type="image/png">
 </head>
 <body>
   <div id="page-container">
@@ -20,7 +16,7 @@
         <h1 class="goat-title">HECO-Africa</h1>
       </div>
       
-      <!-- DESKTOP NAVIGATION -->
+      <!-- NAVIGATION -->
       <nav class="goat-nav" id="goatNav">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -40,11 +36,11 @@
       <div class="goat-menu-btn" id="menuBtn">☰</div>
     </header>
 
-    <!-- MOBILE SIDEBAR MENU -->
+    <!-- MOBILE SIDEBAR - SLIDES FROM LEFT -->
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
       <div class="mobile-sidebar-header">
-        <h2>HECO-Africa</h2>
+        <h2>Menu</h2>
         <button class="close-sidebar" id="closeSidebar">×</button>
       </div>
       <ul>
@@ -58,13 +54,11 @@
 
     <!-- CATEGORY FILTERS -->
     <section id="category-filters" class="filters">
-      <button data-cat="All" class="active">All Products</button>
-      <button data-cat="Kaftan">Kaftans</button>
+      <button data-cat="All">All</button>
+      <button data-cat="Kente">Kaftan</button>
       <button data-cat="Agbada">Agbada</button>
-      <button data-cat="BouBou">BouBou</button>
-      <button data-cat="Blouse">Blouses</button>
-      <button data-cat="University">University Gowns</button>
-      <button data-cat="Accessory">Accessories</button>
+      <button data-cat="Ankara">BouBou</button>
+      <button data-cat="Casual">blouse</button>
     </section>
 
     <!-- PRODUCT GRID -->
@@ -84,34 +78,31 @@
     </div>
 
     <!-- CART SIDEBAR -->
-    <aside id="cart-sidebar">
+    <aside id="cart-sidebar" aria-hidden="true">
       <div class="cart-header">
-        <h2>🛒 Your Shopping Cart</h2>
+        <h2>Your Cart</h2>
         <button id="close-cart">×</button>
       </div>
       <div id="cart-items"></div>
       <div id="cart-summary" class="cart-summary">
         <strong>Total:</strong> <span id="cart-total">KES 0</span>
-        <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
+        <a href="checkout.html" class="checkout-btn">Go to Checkout</a>
       </div>
     </aside>
 
     <!-- FOOTER -->
     <footer>
       <p>
-        <a href="#"><img src="images/whatsapp.png" height="35" alt="WhatsApp"></a>
-        <a href="https://www.instagram.com/heco_africa/"><img src="images/instagram.png" height="35" alt="Instagram"></a>
-        <a href="https://www.facebook.com/profile.php?id=61583885138224"><img src="images/facebook.png" height="35" alt="Facebook"></a>
-        <a href="https://x.com/HecoAfrica"><img src="images/twitter (2).png" height="35" alt="Twitter"></a>
-        <br><br>
-        &copy; 2025 HECO-AFRICA – With the heart of compassion
+        <a href="#"><img src="images/whatsapp.png" height="35"></a>
+        <a href="https://www.instagram.com/heco_africa/"><img src="images/instagram.png" height="35"></a>
+        <a href="https://www.facebook.com/profile.php?id=61583885138224"><img src="images/facebook.png" height="35"></a>
+        <a href="https://x.com/HecoAfrica"><img src="images/twitter (2).png" height="35"></a>
         <br>
-        <small>Premium West African Fashion & Traditional Wear</small>
+        &copy; 2025 HECO-AFRICA – With the heart of compassion
       </p>
     </footer>
   </div>
-
+  
   <script src="script.js"></script>
 </body>
 </html>
-
