@@ -87,6 +87,52 @@
             animation: fadeInUp 0.5s ease;
         }
         
+        /* CART SUMMARY */
+        .cart-summary {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 0, 128, 0.2);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cart-item-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid rgba(255, 0, 128, 0.3);
+        }
+        
+        .cart-item-info {
+            flex: 1;
+        }
+        
+        .cart-item-name {
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-details {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
         /* PESAPAL EMBED CONTAINER */
         .pesapal-embed-container {
             background: white;
@@ -177,16 +223,6 @@
             background-clip: text;
             color: transparent;
             margin: 10px 0;
-        }
-        
-        .amount-input {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .amount-input input {
-            margin-bottom: 0;
         }
         
         .payment-methods {
@@ -344,6 +380,14 @@
             <p>Secure Payment Gateway</p>
         </div>
         
+        <!-- CART SUMMARY -->
+        <div class="cart-summary" id="cartSummary">
+            <h3>Your Cart Items</h3>
+            <div id="cartItemsList">
+                <!-- Cart items will be loaded here -->
+            </div>
+        </div>
+        
         <div class="section">
             <h3>Contact Information</h3>
             <label for="cust-name">Full Name</label>
@@ -358,17 +402,8 @@
         
         <div class="amount-section">
             <h3>Payment Amount</h3>
-            <div id="amount">KES 100</div>
-            <p>Enter amount in Kenyan Shillings</p>
-            
-            <div class="amount-input">
-                <input type="number" id="amount-input" placeholder="Enter amount" min="1" value="100" onchange="updateAmount()">
-                <select id="currency" onchange="updateAmount()">
-                    <option value="KES">KES</option>
-                    <option value="USD">USD</option>
-                    <option value="EUR">EUR</option>
-                </select>
-            </div>
+            <div id="amount">KES 0</div>
+            <p>Total amount from your cart</p>
         </div>
         
         <div class="payment-methods">
@@ -399,7 +434,7 @@
         </button>
         
         <button class="payment-btn splash-btn" onclick="goToSplash()">
-            <span>🏠</span> Back to Home
+            <span>🏠</span> Back to Shop
         </button>
         
         <div class="footer">
@@ -409,18 +444,105 @@
     
     <!-- WhatsApp Floating Button -->
     <div class="whatsapp-chat" id="whatsappChat" style="display: none;">
-        <div class="whatsapp-icon" onclick="openWhatsApp()">
+        <div class="whatsapp-icon" onclick="openWhatsAppWithCart()">
             💬
         </div>
     </div>
 
     <script>
         let selectedMethod = '';
+        let cartItems = [];
+        let totalAmount = 0;
+        
+        // Load cart from localStorage
+        function loadCartFromStorage() {
+            try {
+                const savedCart = localStorage.getItem('st_cart');
+                if (savedCart) {
+                    cartItems = JSON.parse(savedCart);
+                    displayCartItems();
+                    calculateTotal();
+                } else {
+                    showEmptyCart();
+                }
+            } catch (error) {
+                console.error('Error loading cart:', error);
+                showEmptyCart();
+            }
+        }
+        
+        // Display cart items
+        function displayCartItems() {
+            const cartItemsList = document.getElementById('cartItemsList');
+            cartItemsList.innerHTML = '';
+            
+            if (cartItems.length === 0) {
+                showEmptyCart();
+                return;
+            }
+            
+            cartItems.forEach(item => {
+                const cartItemDiv = document.createElement('div');
+                cartItemDiv.className = 'cart-item';
+                
+                cartItemDiv.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-image" onerror="this.src='https://via.placeholder.com/60x60?text=Product'">
+                    <div class="cart-item-info">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-details">
+                            KES ${item.price} × ${item.quantity} = KES ${item.price * item.quantity}
+                        </div>
+                    </div>
+                `;
+                
+                cartItemsList.appendChild(cartItemDiv);
+            });
+        }
+        
+        // Show empty cart message
+        function showEmptyCart() {
+            const cartItemsList = document.getElementById('cartItemsList');
+            cartItemsList.innerHTML = `
+                <div style="text-align: center; padding: 30px; color: #aaa;">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🛒</div>
+                    <p>Your cart is empty</p>
+                    <button class="payment-btn splash-btn" onclick="goToSplash()" style="margin-top: 15px;">
+                        <span>🛍️</span> Go Shopping
+                    </button>
+                </div>
+            `;
+        }
+        
+        // Calculate total amount
+        function calculateTotal() {
+            totalAmount = cartItems.reduce((total, item) => {
+                return total + (item.price * item.quantity);
+            }, 0);
+            
+            document.getElementById('amount').textContent = `KES ${totalAmount}`;
+            document.getElementById('amount-input').value = totalAmount;
+            
+            // If cart is empty, disable payment buttons
+            const paymentButtons = document.querySelectorAll('.payment-btn:not(.back-btn):not(.splash-btn)');
+            if (cartItems.length === 0) {
+                paymentButtons.forEach(btn => {
+                    btn.disabled = true;
+                    btn.style.opacity = '0.5';
+                    btn.style.cursor = 'not-allowed';
+                });
+            } else {
+                paymentButtons.forEach(btn => {
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                    btn.style.cursor = 'pointer';
+                });
+            }
+        }
         
         // Show popup buttons when page loads
         window.onload = function() {
+            loadCartFromStorage();
             document.getElementById('popupButtons').style.display = 'flex';
-            updateAmount();
         };
         
         // Handle payment method selection
@@ -428,7 +550,12 @@
             selectedMethod = method;
             
             if (method === 'whatsapp') {
-                openWhatsApp();
+                if (cartItems.length === 0) {
+                    alert('Your cart is empty. Please add items to your cart first.');
+                    goToSplash();
+                    return;
+                }
+                openWhatsAppWithCart();
                 return;
             }
             
@@ -462,16 +589,32 @@
             document.getElementById('popupButtons').style.display = 'flex';
         }
         
-        // Go to splash.html
+        // Go to splash.html (shop page)
         function goToSplash() {
             window.location.href = "splash.html";
         }
         
-        // Update amount display
-        function updateAmount() {
-            const amount = document.getElementById('amount-input').value;
-            const currency = document.getElementById('currency').value;
-            document.getElementById('amount').textContent = `${currency} ${amount}`;
+        // Generate cart summary for messages
+        function getCartSummary() {
+            let summary = "🛒 MY ORDER SUMMARY:\n";
+            cartItems.forEach((item, index) => {
+                summary += `\n${index + 1}. ${item.name}\n`;
+                summary += `   Quantity: ${item.quantity}\n`;
+                summary += `   Price: KES ${item.price} each\n`;
+                summary += `   Subtotal: KES ${item.price * item.quantity}\n`;
+            });
+            summary += `\n💰 TOTAL: KES ${totalAmount}`;
+            return summary;
+        }
+        
+        // Generate cart summary for PesaPal/M-Pesa (without images)
+        function getCartSummarySimple() {
+            let summary = "";
+            cartItems.forEach((item, index) => {
+                summary += `${item.name} (${item.quantity} × KES ${item.price})`;
+                if (index < cartItems.length - 1) summary += ", ";
+            });
+            return summary;
         }
         
         // Process M-Pesa Payment
@@ -479,15 +622,14 @@
             const name = document.getElementById('cust-name').value;
             const email = document.getElementById('cust-email').value;
             const phone = document.getElementById('cust-phone').value;
-            const amount = document.getElementById('amount-input').value;
             
             if (!name || !email || !phone) {
                 alert('Please fill in all contact information first');
                 return;
             }
             
-            if (!amount || amount < 1) {
-                alert('Please enter a valid amount');
+            if (cartItems.length === 0) {
+                alert('Your cart is empty. Please add items to your cart.');
                 return;
             }
             
@@ -502,10 +644,12 @@
             
             // Generate reference
             const reference = 'HECO' + Date.now().toString().slice(-6);
+            const cartSummary = getCartSummarySimple();
             
             // Show processing message
             alert(`💰 M-Pesa Payment Request\n\n` +
-                  `Amount: KES ${amount}\n` +
+                  `Items: ${cartSummary}\n` +
+                  `Total: KES ${totalAmount}\n` +
                   `Phone: ${phone}\n` +
                   `Reference: ${reference}\n\n` +
                   `Check your phone for STK Push prompt.`);
@@ -513,8 +657,9 @@
             // Simulate payment processing
             console.log('M-Pesa Payment Processing:', {
                 phone: cleanPhone,
-                amount: amount,
+                amount: totalAmount,
                 reference: reference,
+                items: cartItems,
                 name: name,
                 email: email
             });
@@ -522,15 +667,19 @@
             // Show success message after delay
             setTimeout(() => {
                 const confirmed = confirm(`✅ Did you complete the M-Pesa payment on your phone?\n\n` +
-                                        `If yes, payment was successful!\n` +
+                                        `Items: ${cartSummary}\n` +
+                                        `Total: KES ${totalAmount}\n` +
                                         `Reference: ${reference}`);
                 
                 if (confirmed) {
                     alert('🎉 Thank you for your payment to HECO Africa!\nA receipt has been sent to your email.');
                     
+                    // Clear cart after successful payment
+                    localStorage.removeItem('st_cart');
+                    
                     // Optionally redirect to splash page after successful payment
                     setTimeout(() => {
-                        const goHome = confirm('Would you like to return to the home page?');
+                        const goHome = confirm('Would you like to return to the shop?');
                         if (goHome) {
                             goToSplash();
                         }
@@ -546,15 +695,14 @@
             const name = document.getElementById('cust-name').value;
             const email = document.getElementById('cust-email').value;
             const phone = document.getElementById('cust-phone').value;
-            const amount = document.getElementById('amount-input').value;
             
             if (!name || !email || !phone) {
                 alert('Please fill in all contact information first');
                 return;
             }
             
-            if (!amount || amount < 1) {
-                alert('Please enter a valid amount');
+            if (cartItems.length === 0) {
+                alert('Your cart is empty. Please add items to your cart.');
                 return;
             }
             
@@ -562,23 +710,55 @@
             document.getElementById('pesapalEmbed').style.display = 'block';
             document.getElementById('pesapalEmbed').scrollIntoView({ behavior: 'smooth' });
             
+            const cartSummary = getCartSummarySimple();
             alert('🔐 Opening PesaPal secure payment gateway...\n\n' +
-                  'Complete your payment in the window below.\n' +
-                  `Amount: KES ${amount}\n` +
-                  `Email: ${email}`);
+                  `Items: ${cartSummary}\n` +
+                  `Total: KES ${totalAmount}\n` +
+                  `Email: ${email}\n\n` +
+                  'Complete your payment in the window below.');
+            
+            // Store order details for PesaPal
+            const orderDetails = {
+                name: name,
+                email: email,
+                phone: phone,
+                items: cartItems,
+                total: totalAmount,
+                reference: 'HECO' + Date.now().toString().slice(-6)
+            };
+            
+            localStorage.setItem('pesapal_order', JSON.stringify(orderDetails));
         }
         
-        // Open WhatsApp
-        function openWhatsApp() {
+        // Open WhatsApp with cart items (WITH IMAGES)
+        function openWhatsAppWithCart() {
             const phoneNumber = "254705379295"; // Your WhatsApp number
             const name = document.getElementById('cust-name')?.value || "Customer";
-            const message = `Hello HECO Africa! My name is ${name}. I'm interested in your services. Can you help me with payment information?`;
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            
+            // Build detailed WhatsApp message with cart items
+            let whatsappMessage = `Hello HECO Africa! 👋\n\n`;
+            whatsappMessage += `My name is ${name}.\n\n`;
+            whatsappMessage += `I want to purchase the following items:\n\n`;
+            
+            cartItems.forEach((item, index) => {
+                whatsappMessage += `📦 *${item.name}*\n`;
+                whatsappMessage += `   Quantity: ${item.quantity}\n`;
+                whatsappMessage += `   Price: KES ${item.price} each\n`;
+                whatsappMessage += `   Subtotal: KES ${item.price * item.quantity}\n`;
+                whatsappMessage += `   Image: ${item.image}\n\n`;
+            });
+            
+            whatsappMessage += `💰 *TOTAL AMOUNT: KES ${totalAmount}*\n\n`;
+            whatsappMessage += `Please help me complete this order. Thank you!`;
+            
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
             
             window.open(whatsappUrl, '_blank');
             
             // Show confirmation
-            alert('Opening WhatsApp to chat with HECO Africa...\n\n' +
+            alert('Opening WhatsApp to send your order details...\n\n' +
+                  `You are sending ${cartItems.length} item(s) from your cart.\n` +
+                  `Total: KES ${totalAmount}\n\n` +
                   'If WhatsApp doesn\'t open, please message us at:\n' +
                   '+254 705 379 295');
             
@@ -603,6 +783,13 @@
                 }
             });
         });
+        
+        // Create hidden input for amount (needed for some functions)
+        const amountInput = document.createElement('input');
+        amountInput.type = 'hidden';
+        amountInput.id = 'amount-input';
+        amountInput.value = '0';
+        document.body.appendChild(amountInput);
         
         // Auto-fill phone with your WhatsApp number as placeholder
         document.getElementById('cust-phone').placeholder = "0705 379 295";
