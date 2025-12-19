@@ -1,15 +1,15 @@
 // Main script for HECO-Africa Shop
 const products = [
   { id:1, name:"kaftan shirt", category:"kaftan", price:2500, image:"images/Dad 1.jpg", rating:4, isNew:true },
-  { id:2, name:"University gown", category:"university gown", price:35000, image:"images/Agbada 555.jpg", rating:5, isNew:true },
-  { id:3, name:"kenyan bungle", category:"kenyan bungle", price:500, image:"images/bungle.jpeg", rating:5, isNew:true },
+  { id:2, name:"University gown", category:"university gown", price:35000, image:"images/Agbada 555.jpg", rating:5, isNew:true }, // Changed from 10 to 2
+  { id:3, name:"kenyan bungle", category:"kenyan bungle", price:500, image:"images/bungle.jpeg", rating:5, isNew:true }, // Changed from 10 to 3
   { id:4, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 3.jpg", rating:5, isNew:true },
   { id:5, name:"improved kaunda suit", category:"improve kaunda suit", price:11500, image:"images/rto 11500.jpg", rating:5, isNew:true },
-  { id:6, name:"Kaftan shirt", category:"Kaftan ", price:2500, image:"images/dad 2.jpg", rating:5, isNew:true },
+  { id:6, name:"Kaftan shirt", category:"Kaftan ", price:2500, image:"images/dad 2.jpg", rating:5, isNew:true }, // Changed from 2 to 6
   { id:7, name:"west african dress", category:"Ankara", price:7500, image:"images/martin 3.jpg", rating:4 },
   { id:8, name:"kids west african shirt", category:"Ankara", price:1500, image:"images/martin 2.jpg", rating:3 },
   { id:9, name:"Agbada", category:"Agbada", price:15000, image:"images/green.jpg", rating:3 },
-  { id:10, name:"university gown", category:"university gown", price:15000, image:"images/gown 1.jpg", rating:3 },
+  { id:10, name:"university gown", category:"university gown", price:15000, image:"images/gown 1.jpg", rating:3 }, // Changed from 14 to 10
   { id:11, name:"west african kitenge", category:"Casual", price:4500, image:"images/mama 2.jpg", rating:4 },
   { id:12, name:"Dress", category:"dress", price:7500, image:"images/mama 1.jpg", rating:3 },
   { id:13, name:"Kaftan", category:"Kaftan", price:2500, image:"images/dad 50.jpg", rating:5 },
@@ -251,6 +251,24 @@ function setupFloatingSearch() {
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
 window.toggleLike = toggleLike;
+
+// Add to your existing shop.js
+function goToCheckout() {
+  if (cart.length === 0) {
+    alert("Your cart is empty. Add some items first!");
+    return;
+  }
+  
+  // Ensure cart is saved
+  saveCart();
+  
+  // Redirect to payment page
+  window.location.href = "payment.html";
+}
+
+// Expose the function
+window.goToCheckout = goToCheckout;
+
 
 
 
