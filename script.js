@@ -2,7 +2,7 @@
 const products = [
   { id:1, name:"kaftan shirt", category:"kaftan", price:2500, image:"images/Dad 1.jpg", rating:4, isNew:true },
   { id:2, name:"University gown", category:"university gown", price:35000, image:"images/Agbada 555.jpg", rating:5, isNew:true }, // Changed from 10 to 2
-  { id:3, name:"christmass stokins", category:"christmass stokings", price:3000, image:"images/dls.jpeg", rating:5, isNew:true },
+  { id:3, name:"christmass stokings", category:"christmass stokings", price:3000, image:"images/dls.jpeg", rating:5, isNew:true },
   { id:4, name:"kenyan bungle", category:"kenyan bungle", price:500, image:"images/bungle.jpeg", rating:5, isNew:true }, // Changed from 10 to 3
   { id:5, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 3.jpg", rating:5, isNew:true },
   { id:6, name:"improved kaunda suit", category:"improve kaunda suit", price:11500, image:"images/rto 11500.jpg", rating:5, isNew:true },
@@ -270,6 +270,7 @@ function goToCheckout() {
 
 // Expose the function
 window.goToCheckout = goToCheckout;
+
 
 
 
