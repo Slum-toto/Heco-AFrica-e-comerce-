@@ -18,14 +18,15 @@ const products = [
   { id:16, name:"University gowns", category:"university gowns", price:15000, image:"images/gown 2.jpg", rating:3 },
   { id:17, name:"baubaus", category:"Baubaus", price:4500, image:"images/dera 1.jpg", rating:4 },
   { id:18, name:"Blouse", category:"Blouse", price:7500, image:"images/Heco1.2.jpg", rating:4 },
-  { id:19, name:"Baubau", category:"Baubaus", price:4500, image:"images/dera 2.jpg", rating:5 },
-  { id:20, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 6.jpg", rating:5 },
-  { id:21, name:"kaftan shirt", category:"Kaftan ", price:2500, image:"images/osore.jpg", rating:5 },
-  { id:22, name:"Agbada", category:"Agbada for kids", price:12000, image:"images/agbada.jpg", rating:5 },
-  { id:23, name:"Temple Ties", category:"Temple Ties", price:1000, image:"images/ties.jpg", rating:5 },
-  { id:24, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 4.jpg", rating:5 },
-  { id:25, name:"kitenge Court", category:"kitenge court", price:7000, image:"images/court luder.jpg", rating:5 },
-  { id:26, name:"Hoodey", category:"Hoodey", price:3000, image:"images/red hoodey.jpg", rating:5 },
+    { id:19, name:"christmas stokins", category:"christmas stokins", price:3000, image:"images/save.jpeg", rating:4 },
+  { id:20, name:"Baubau", category:"Baubaus", price:4500, image:"images/dera 2.jpg", rating:5 },
+  { id:21, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 6.jpg", rating:5 },
+  { id:22, name:"kaftan shirt", category:"Kaftan ", price:2500, image:"images/osore.jpg", rating:5 },
+  { id:23, name:"Agbada", category:"Agbada for kids", price:12000, image:"images/agbada.jpg", rating:5 },
+  { id:24, name:"Temple Ties", category:"Temple Ties", price:1000, image:"images/ties.jpg", rating:5 },
+  { id:25, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 4.jpg", rating:5 },
+  { id:26, name:"kitenge Court", category:"kitenge court", price:7000, image:"images/court luder.jpg", rating:5 },
+  { id:27, name:"Hoodey", category:"Hoodey", price:3000, image:"images/red hoodey.jpg", rating:5 },
 ];
 
 let cart = JSON.parse(localStorage.getItem('st_cart') || '[]');
@@ -269,6 +270,7 @@ function goToCheckout() {
 
 // Expose the function
 window.goToCheckout = goToCheckout;
+
 
 
 
