@@ -2,7 +2,7 @@
 const products = [
   { id:1, name:"kaftan shirt", category:"kaftan", price:2500, image:"images/Dad 1.jpg", rating:4, isNew:true },
   { id:2, name:"University gown", category:"university gown", price:35000, image:"images/Agbada 555.jpg", rating:5, isNew:true }, // Changed from 10 to 2
-  { id:3, name:"chistmass stokins", category:"christ mas stokins", price:3000, image:"images/dls.jpeg", rating:5, isNew:true },
+  { id:3, name:"chistmass stokins", category:"christmass stokings", price:3000, image:"images/dls.jpeg", rating:5, isNew:true },
   { id:4, name:"kenyan bungle", category:"kenyan bungle", price:500, image:"images/bungle.jpeg", rating:5, isNew:true }, // Changed from 10 to 3
   { id:5, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 3.jpg", rating:5, isNew:true },
   { id:6, name:"improved kaunda suit", category:"improve kaunda suit", price:11500, image:"images/rto 11500.jpg", rating:5, isNew:true },
@@ -18,7 +18,7 @@ const products = [
   { id:16, name:"University gowns", category:"university gowns", price:15000, image:"images/gown 2.jpg", rating:3 },
   { id:17, name:"baubaus", category:"Baubaus", price:4500, image:"images/dera 1.jpg", rating:4 },
   { id:18, name:"Blouse", category:"Blouse", price:7500, image:"images/Heco1.2.jpg", rating:4 },
-    { id:19, name:"christmas stokins", category:"christmas stokins", price:3000, image:"images/save.jpeg", rating:4 },
+    { id:19, name:"christmas stokins", category:"christmas stokings", price:3000, image:"images/save.jpeg", rating:4 },
   { id:20, name:"Baubau", category:"Baubaus", price:4500, image:"images/dera 2.jpg", rating:5 },
   { id:21, name:"Agbada", category:"Agbada", price:35000, image:"images/agbada 6.jpg", rating:5 },
   { id:22, name:"kaftan shirt", category:"Kaftan ", price:2500, image:"images/osore.jpg", rating:5 },
@@ -270,6 +270,7 @@ function goToCheckout() {
 
 // Expose the function
 window.goToCheckout = goToCheckout;
+
 
 
 
